@@ -22,7 +22,8 @@ jobs:
 
     - name: Login to Azure
       uses: azure/login@v1
-      creds: ${{ secrets.AZURE_CREDENTIALS }}
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     - name: Install Bicep
       run: |
