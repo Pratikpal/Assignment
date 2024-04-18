@@ -29,10 +29,7 @@ jobs:
       run: |
         sudo az bicep install
 
-    - name: Build Bicep
-      run: |
-        bicep build azure-resource.bicep
 
     - name: Deploy Bicep
       run: |
-        az deployment sub create --name rg-practice --location eastus2 --template-file ./path/to/azure-resource.json
+        az deployment group create --resource-group rg-practice --template-file azure-resource.bicep
