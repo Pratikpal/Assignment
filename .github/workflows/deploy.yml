@@ -33,3 +33,9 @@ jobs:
     - name: Deploy Bicep
       run: |
         az deployment group create --resource-group rg-practice --template-file azure-resource.bicep
+        az deployment group create --resource-group rg-practice --template-file task1.bicep
+
+    - name: Delete resource
+      run: |
+        az resource delete --resource-group rg-practice --name example146340639 --resource-type Microsoft.Storage/storageAccounts
+        
