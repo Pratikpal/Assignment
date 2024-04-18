@@ -17,6 +17,9 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Azure id
+      run: echo ${{ secrets.AZURE_CLIENT_ID }}
+
     - name: Login to Azure
       uses: azure/login@v1
       with:
