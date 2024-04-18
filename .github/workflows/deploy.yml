@@ -1,0 +1,31 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Install Bicep
+      run: |
+        sudo az bicep install
+
+    - name: Build Bicep
+      run: |
+        bicep build azure-resource.bicep
+
+    - name: Deploy Bicep
+      run: |
+        az deployment sub create --name rg-practice --location eastus2 --template-file ./path/to/azure-resource.json
