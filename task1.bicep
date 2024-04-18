@@ -14,7 +14,7 @@ param adminUsername string = 'adminUsername'
 @description('Virtual machine password')
 param adminPassword string = 'Pratik#1234567890'
 param appServicePlanSku object
-param vmName string = appServicePlanSku.name
+param vmName string = 'myVM'
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
   name: virtualNetworkName
